@@ -28,9 +28,9 @@ while True:
             if all_list[item]['TIME_HOUR'] == datetime.datetime.now().hour - 1\
                     and all_list[item]['TIME_MINUTE'] == datetime.datetime.now().minute:
                 if float(all_list[item]['bidPrice']) <= float(depth['bidPrice']) * 0.99:
-                    print('в сравнении с ценой за прошедший час, цена выросла более чем на 1%')
+                    print('UP! compared to the price for the past hour, the price has increased by more than 1%')
                 elif float(all_list[item]['bidPrice']) >= float(depth['bidPrice']) * 1.01:
-                    print('в сравнении с ценой за прошедший час, цена упала более чем на 1%')
+                    print('DOWN! compared to the price for the past hour, the price fell by more than 1%')
     with open(f'{name_file}.json', 'w') as file2:
         json.dump(all_list, file2, indent=4)
     num_par += 1
